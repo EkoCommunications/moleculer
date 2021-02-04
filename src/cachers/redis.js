@@ -325,7 +325,7 @@ class RedisCacher extends BaseCacher {
 
 	_clusterScanDel(pattern) {
 		const scanDelPromises = [];
-		const nodes = this.client.nodes();
+		const nodes = this.client.nodes("master");
 
 		nodes.forEach(node => {
 			scanDelPromises.push(this._nodeScanDel(node, pattern));
